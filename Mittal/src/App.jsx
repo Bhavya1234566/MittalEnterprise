@@ -1,4 +1,5 @@
 import './App.css'
+import Brands from './Components/Brands/Brands'
 import Collection from './Components/Collections/Collection'
 import Hero from './Components/Hero/Hero'
 import Navbar from './Components/Navbar/Navbar'
@@ -14,6 +15,7 @@ function App() {
       <Popular/>
       <Offers/>
       <Collection/>
+      <Brands/>
     </>
   )
 }

@@ -1,46 +1,104 @@
-.item{
-    width: 350px;
+.item {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(45, 80, 22, 0.1);
+  border: 2px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.item p{
-    margin: 6px 0px;
-    color: #333;
+.item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(76, 175, 80, 0.25);
+  border: 2px solid #4caf50;
 }
 
-
-
-.item-prices{
-    display: flex;
-    gap: 20px;
-    align-items: center;
+/* Image wrapper for badge positioning */
+.item-img {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #e4f0e4;
 }
 
-.item-price-new{
-    color: #2d5016;
-    font-size: 18px;
-    font-weight: 700;
+.item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
 }
 
-.item-price-old{
-    color: #8c8c8c;
-    font-size: 18px;
-    font-weight: 500;
-    text-decoration: line-through;
-    
+.item:hover .item-img img {
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
 }
 
-
-.item:hover{
-    transform: scale(1.05);
-    transition: 0.6s ease;
-    cursor: pointer;
+/* Badge */
+.item-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #1b4d0e;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-.item:hover img {
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+/* Product name */
+.item p {
+  margin: 0;
+  color: #333;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
-.item-cart{
-    margin-left: 131px;
-    margin-top: -52px
+/* Prices */
+.item-prices {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.item-price-new {
+  color: #2d5016;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.item-price-old {
+  color: #8c8c8c;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: line-through;
+}
+
+/* Button full width */
+.item-cart {
+  width: 100%;
+  margin: 0;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  background-color: #1b4d0e !important;
+  border: none !important;
+  color: white !important;
+  transition: background-color 0.2s;
+  text-align: center;
+}
+
+.item-cart:hover {
+  background-color: #4caf50 !important;
 }

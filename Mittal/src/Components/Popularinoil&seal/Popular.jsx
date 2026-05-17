@@ -8,7 +8,7 @@ const Popular = () => {
     <>
       <div className="popular">
         <h1>Popular in Oil Seal & Rubber Accessories</h1>
-        <hr/>
+        <hr />
         <div className="popular-view">View all →</div>
         <div className="popular-items">
           {data_product.map((items, i) => {
@@ -20,6 +20,7 @@ const Popular = () => {
                 image={items.image}
                 new_price={items.new_price}
                 old_price={items.old_price}
+                badge={items.badge}
               />
             );
           })}

@@ -1,0 +1,28 @@
+.brands {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-height: 90vh;
+  padding: 60px 20px;
+  background: #f1f8f4;
+  margin-top: 70px;
+}
+
+.brands h1 {
+  color: #1b4d0e;
+  font-size: 50px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.brands hr {
+  width: 120px;
+  height: 6px;
+  border-radius: 10px;
+  background: #4caf50;
+  border: none;
+  margin-bottom: 20px;
+  opacity: 1;
+}
