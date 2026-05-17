@@ -1,0 +1,23 @@
+/* NavCategory.css */
+ul.navcategory {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 100px;
+  padding: 8px 0;
+  margin-left: 100px;
+  margin-top: 10px;
+  list-style: none;
+}
+
+
+
+.dropdown-menu {
+  position: absolute !important;
+  top: 100% !important;
+  left: auto !important;
+}
+
+.dropdown-item {
+  padding: 12px 20px !important;
+}
+

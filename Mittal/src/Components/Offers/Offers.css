@@ -1,0 +1,123 @@
+.offers {
+    min-height: 55vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 80px;
+    background: linear-gradient(to right, #f4fff2, #ffffff);
+    font-family: "Poppins", sans-serif;
+    margin: 100px;
+}
+
+.offers-left {
+    max-width: 50%;
+}
+
+.tagline {
+    font-size: 16px;
+    color: #2e7d32;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.offers-left h1 {
+    font-size: 64px;
+    font-weight: 700;
+    margin: 10px 0 20px 0;
+    color: #111;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.offers-left p {
+    font-size: 19px;
+    color: #555;
+    margin: 25px 0;
+    line-height: 1.6;
+}
+
+.offers-left p span {
+    font-weight: 600;
+    color: #000;
+}
+
+.offer-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.btn-primary {
+    background-color: #2e7d32;
+    color: white;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #256628;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #555;
+    color: #555;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: #555;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.offers-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 48%;
+    padding-bottom: 60px;
+}
+
+.tractor-img {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    object-fit: contain;
+}
+
+.parts-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: absolute;
+    bottom: -2px;
+    right: 40px;
+    max-width: 380px;
+    align-items: center;
+    justify-content: center;
+}
+
+.parts-icons img {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    mix-blend-mode: darken;
+    background: transparent;
+}
