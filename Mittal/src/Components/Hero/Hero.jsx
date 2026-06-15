@@ -6,30 +6,30 @@ import arrow_icon from '../assets/arrow.png'
 
 const Hero = () => {
   return (
-    <>
-      <div className="hero">
-        <div className="container">
-          <div className="row row-cols-2">
-            <div className="col">
-              <div className="hero-left">
+    <div className="hero">
+      
+      <div className="container">
+        <div className="row row-cols-2">
+          <div className="col">
+            <div className="hero-left">
               <h6>NEW ARRIVALS ONLY</h6>
               <p>new</p>
               <img src={hand_icon} alt="" />
               <p>Collections</p>
               <p>for everyone</p>
-              </div>
-            </div>
-            <div className="col">
-              <img src={tractor_img} alt="" className="hero-img-right" />
             </div>
           </div>
-        </div>
-        <div className="latest-collection-btn">
-         <div>Latest Collecton</div>
-         <img src={arrow_icon} alt="" />
+          <div className="col d-flex align-items-center">
+            <img src={tractor_img} alt="Tractor" className="hero-img-right" />
+          </div>
         </div>
       </div>
-    </>
+
+      <button className="latest-collection-btn">
+        <div>Latest Collection</div>
+        <img src={arrow_icon} alt="" />
+      </button>
+    </div>
   );
 };
 

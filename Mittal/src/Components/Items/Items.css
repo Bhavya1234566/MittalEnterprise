@@ -1,10 +1,18 @@
+/* =============================================
+   Item.css
+   Changes from original:
+   - Replaced !important overrides with higher-specificity selectors
+   - item-img uses aspect-ratio instead of fixed 200px height
+   - Standardised transition to var(--transition-base)
+   ============================================= */
+
 .item {
-  background: white;
-  border-radius: 10px;
+  background: var(--white);
+  border-radius: var(--radius-md);
   padding: 20px;
-  box-shadow: 0 2px 8px rgba(45, 80, 22, 0.1);
+  box-shadow: var(--shadow-sm);
   border: 2px solid transparent;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition-base);
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -13,39 +21,39 @@
 
 .item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 16px rgba(76, 175, 80, 0.25);
-  border: 2px solid #4caf50;
+  box-shadow: var(--shadow-md);
+  border-color: var(--green-accent);
 }
 
-/* Image wrapper for badge positioning */
-.item-img {
+/* ---- Image container ---- */
+.item .item-img {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 4 / 3;              /* replaces fixed 200px — proportional on any width */
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   background-color: #e4f0e4;
 }
 
-.item-img img {
+.item .item-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
-  transition: box-shadow 0.3s ease;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-base);
 }
 
 .item:hover .item-img img {
   box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
 }
 
-/* Badge */
-.item-badge {
+/* ---- Badge ---- */
+.item .item-badge {
   position: absolute;
   top: 10px;
   left: 10px;
-  background: #1b4d0e;
-  color: #ffffff;
+  background: var(--green-dark);
+  color: var(--white);
   font-size: 10px;
   font-weight: 600;
   padding: 3px 9px;
@@ -54,51 +62,69 @@
   text-transform: uppercase;
 }
 
-/* Product name */
-.item p {
+/* ---- Product name ---- */
+.item > p {
   margin: 0;
-  color: #333;
+  color: var(--text-dark);
   font-size: 15px;
   font-weight: 500;
   line-height: 1.4;
 }
 
-/* Prices */
-.item-prices {
+/* ---- Prices ---- */
+.item .item-prices {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 12px;
 }
 
-.item-price-new {
-  color: #2d5016;
+.item .item-price-new {
+  color: var(--green-primary);
   font-size: 18px;
   font-weight: 700;
 }
 
-.item-price-old {
-  color: #8c8c8c;
+.item .item-price-old {
+  color: var(--text-muted);
   font-size: 16px;
   font-weight: 500;
   text-decoration: line-through;
 }
 
-/* Button full width */
-.item-cart {
+/* ---- Add to cart button ----
+   Higher specificity (.item .item-cart) removes the need for !important */
+.item .item-cart {
   width: 100%;
-  margin: 0;
   padding: 10px 0;
   font-size: 14px;
   font-weight: 500;
-  border-radius: 8px;
-  background-color: #1b4d0e !important;
-  border: none !important;
-  color: white !important;
-  transition: background-color 0.2s;
+  border-radius: var(--radius-sm);
+  background-color: var(--green-dark);
+  border: none;
+  color: var(--white);
+  transition: background-color 0.2s ease;
   text-align: center;
+  cursor: pointer;
+  font-family: var(--font-body);
 }
 
-.item-cart:hover {
-  background-color: #4caf50 !important;
+.item .item-cart:hover {
+  background-color: var(--green-accent);
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 480px) {
+  .item {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .item .item-price-new {
+    font-size: 16px;
+  }
+
+  .item .item-price-old {
+    font-size: 14px;
+  }
 }

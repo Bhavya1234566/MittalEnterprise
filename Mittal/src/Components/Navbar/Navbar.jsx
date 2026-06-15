@@ -5,29 +5,30 @@ import cart_icon from "../assets/cart_icon.png";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const [InputValue , setInputValue] = useState();
+  const [inputValue, setInputValue] = useState("");
 
-  const handleSearchInput = (event) =>{
+  const handleSearchInput = (event) => {
     setInputValue(event.target.value);
-  }
+  };
 
   const handleSearchButtonClicked = () => {
-    if(InputValue == "Gear"){
+    if (inputValue === "Gear") {
       console.log("searched");
-      
     }
-  }
+  };
 
-   const handleKeyDown = (event) => {
+  const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       handleSearchButtonClicked();
     }
   };
+
   return (
-    <>
+    <div className="navbar-wrapper">
+      {/* ── Top bar: Logo + Search + Login/Cart ── */}
       <div className="navbar">
         <div className="nav-logo">
-          <img src={logo} alt="" />
+          <img src={logo} alt="Mittal Enterprises" />
         </div>
 
         <div className="nav-login-cart-search">
@@ -38,18 +39,33 @@ const Navbar = () => {
             onChange={handleSearchInput}
             onKeyDown={handleKeyDown}
           />
-          <button className="btn btn-outline-success" onClick={handleSearchButtonClicked}>Search</button>
+          <button
+            className="btn btn-outline-success"
+            onClick={handleSearchButtonClicked}
+          >
+            Search
+          </button>
         </div>
+
         <div className="nav-login-cart-login">
           <button className="btn btn-outline-success">login</button>
-          <img src={cart_icon} alt="" />
-          <div className="item-count">0</div>
+          <div className="cart-wrapper">
+            <img src={cart_icon} alt="cart" />
+            <div className="item-count">0</div>
+          </div>
         </div>
-        <div className="navbar-categories">
-        <NavCategory />
+
+        {/* Hamburger slot — sirf ≤991px pe visible */}
+        <div className="nav-hamburger-slot">
+          <NavCategory mobileInline={true} />
         </div>
       </div>
-    </>
+
+      {/* Category bar — sirf ≥992px pe visible */}
+      <div className="nav-category-bar">
+        <NavCategory mobileInline={false} />
+      </div>
+    </div>
   );
 };
 

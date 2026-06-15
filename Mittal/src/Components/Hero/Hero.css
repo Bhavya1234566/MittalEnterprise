@@ -1,52 +1,127 @@
-.hero{
-  display: grid;
+/* =============================================
+   Hero.css — v2
+   Fixes:
+   - Button ab neeche hai (.hero ke flex column mein, .row ke bahar)
+   - Text (p) responsive clamp se chota hoga screen choti hone par
+   - Negative margin-top: -23px hata diya
+   - margin-left: 99px hata diya button se
+   ============================================= */
+
+.hero {
   background: linear-gradient(180deg, #e8f5e9 0%, #ffffff 70%);
-  height: 100vh;
-  grid-template-columns: 1fr;
-  align-items: center;
-}
-
-
-.hero-left h6{
-  font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 1px;
-   margin-top: 50px;
-    color: #2d5016;
-}
-
-.hero-left p{
-  font-size: 64px;
-    font-weight: 700;
-    margin-top: -23px;
-    color: black
-}
-
-.hero-img-right{
+  min-height: 100vh;
   display: flex;
-  padding-left: 37px;
-  mix-blend-mode: multiply;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 0 0 0;
 }
 
-.latest-collection-btn{
-    display: flex;
-    align-items: center;
-    margin-left: 99px;
-    width: 241px;
-    height: 54px;
-    border-radius: 50px;
-    gap: 10px;
-    margin-top: 30px;
-    background: #4caf50;
-    color: white;
-    font-size: 20px;
-    font-weight: 500;
-    cursor: pointer;
-    padding-left: 18px;
-    transition: all 0.3s ease;
+/* ---- Left content ---- */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 0 20px 40px;
+}
+
+.hero-left h6 {
+  font-size: clamp(13px, 1.2vw, 18px);
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #2d5016;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+/* Main headline — screen choti hone par text bhi chota hoga */
+.hero-left p {
+  font-size: clamp(28px, 5vw, 64px);
+  font-weight: 700;
+  color: black;
+  line-height: 1.1;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.hero-left > img {
+  width: clamp(30px, 4vw, 52px);
+  margin: 4px 0;
+}
+
+/* ---- Right image ---- */
+.hero-img-right {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ---- Button — .row ke BAHAR, neeche ---- */
+.latest-collection-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  height: 54px;
+  padding: 0 24px 0 18px;
+  border-radius: 50px;
+  margin: 30px 0 40px 160px;
+  background: #4caf50;
+  color: white;
+  font-size: clamp(15px, 1.5vw, 20px);
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body, "Poppins", sans-serif);
+  transition: all 0.3s ease;
 }
 
 .latest-collection-btn:hover {
-    background: #2d5016;
-    transform: translateX(5px);
+  background: #2d5016;
+  transform: translateX(5px);
+}
+
+.latest-collection-btn img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-top: 20px;
+  }
+
+  .hero-left {
+    padding: 20px 20px 10px 20px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-img-right {
+    max-width: 85%;
+    margin: 10px auto 0;
+  }
+
+  .latest-collection-btn {
+    margin: 24px auto 32px auto;
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-left {
+    padding: 16px 12px 8px 12px;
+  }
+
+  .latest-collection-btn {
+    height: 46px;
+    padding: 0 18px 0 14px;
+    margin: 20px auto 28px auto;
+  }
 }

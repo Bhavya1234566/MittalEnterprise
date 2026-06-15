@@ -1,23 +1,173 @@
-/* NavCategory.css */
-ul.navcategory {
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 100px;
-  padding: 8px 0;
-  margin-left: 100px;
-  margin-top: 10px;
+/* ── Wrapper (desktop bar) ── */
+.navcategory-wrapper {
+  width: 100%;
+  background: #ffffff;
+  padding: 0 24px;
+}
+
+/* ── Horizontal list (desktop) ── */
+.navcategory {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(16px, 3vw, 56px);
   list-style: none;
+  margin: 0;
+  padding: 4px 0;
 }
 
-
-
-.dropdown-menu {
-  position: absolute !important;
-  top: 100% !important;
-  left: auto !important;
+/* ── Nav item ── */
+.navcategory__item {
+  position: relative;
 }
 
-.dropdown-item {
-  padding: 12px 20px !important;
+/* ── Link / button shared style ── */
+.navcategory__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2d5016;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 0;
+  font-family: "Poppins", sans-serif;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+  text-decoration: none;
 }
 
+.navcategory__link:hover {
+  color: #4caf50;
+}
+
+/* Chevron */
+.navcategory__chevron {
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+.navcategory__chevron.open {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown (desktop) ── */
+.navcategory__dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 200px;
+  background: #ffffff;
+  border: 1px solid #dceedd;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(45, 80, 22, 0.12);
+  list-style: none;
+  padding: 6px 0;
+  z-index: 999;
+  animation: dropIn 0.18s ease;
+}
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.navcategory__dropdown-item {
+  display: block;
+  padding: 10px 18px;
+  font-size: 14px;
+  color: #333;
+  font-family: "Poppins", sans-serif;
+  transition: background 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+}
+
+.navcategory__dropdown-item:hover {
+  background: #f1f8f4;
+  color: #2d5016;
+}
+
+/* ── Mobile slot (hamburger container) ── */
+.navcategory-mobile-slot {
+  position: relative;
+}
+
+/* Hamburger button */
+.navcategory-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.navcategory-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #2d5016;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+}
+
+/* ── Drawer (tablet/mobile dropdown) ── */
+.navcategory--drawer {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 240px;
+  background: white;
+  border: 1px solid #dceedd;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(45, 80, 22, 0.15);
+  z-index: 999;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 0 12px;
+  list-style: none;
+  display: flex;
+  animation: dropIn 0.2s ease;
+}
+
+.navcategory--drawer .navcategory__item {
+  width: 100%;
+}
+
+.navcategory--drawer .navcategory__link {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  border-bottom: 1px solid #f0f5f0;
+  justify-content: space-between;
+}
+
+/* Drawer ke andar dropdown — inline flow */
+.navcategory--drawer .navcategory__dropdown {
+  position: static;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  background: #f8fdf8;
+  padding: 0;
+  animation: none;
+  border-left: 3px solid #4caf50;
+  margin-left: 12px;
+  min-width: unset;
+  width: calc(100% - 12px);
+}
+
+.navcategory--drawer .navcategory__dropdown-item {
+  padding: 10px 16px;
+  font-size: 13px;
+}
+
+/* ── Overlay ── */
+.navcategory-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: transparent;
+}

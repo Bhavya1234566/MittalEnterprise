@@ -1,37 +1,57 @@
+/* =============================================
+   popular.css — v3
+   Fixes from screenshot:
+   - Desktop: "View all" right side tha — ab h1 ke seedha neeche-right mein
+   - Mobile: "View all" center ho raha tha — ab left mein rehega
+   - .popular ka align-items: center sirf .popular-items pe apply hoga
+   ============================================= */
+
 .popular {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    min-height: 90vh;
-    padding: 60px 20px;
-    background: #f1f8f4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;      /* was center — "View all" mobile pe center ho raha tha */
+  gap: 0;
+  min-height: 90vh;
+  padding: 60px 40px;
+  background: #f1f8f4;
+}
+
+/* ---- Header block: full width, h1 + hr + view all ---- */
+.popular-header {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;               /* center karo page mein */
+}
+
+/* h1 aur hr ek column mein */
+.popular-header-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;  /* h1 left, view-all right — lekin h1 ke NEECHE hr hai */
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .popular h1 {
-    color: #1b4d0e;
-    font-size: 50px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    text-align: center;
+  color: #1b4d0e;
+  font-size: clamp(22px, 3.5vw, 50px);
+  font-weight: 600;
+  margin: 0;
+  text-align: left;
+  flex: 1;
 }
 
-.popular hr {
-    width: 200px;
-    height: 6px;
-    border-radius: 10px;
-    background: #4caf50;
-    border: none;
-    margin-bottom: 20px;
-    opacity: 1;
-}
-
-.popular-view{
-    margin-left: 1200px;
-    font-size: larger;
-    font-weight: 600;
-    color: #4caf50;
-    cursor: pointer;
+/* View all — h1 ke right mein, baseline aligned */
+.popular-view {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4caf50;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: flex-end;
+  padding-bottom: 4px;
 }
 
 .popular-view:hover {
@@ -39,49 +59,85 @@
   text-decoration: underline;
 }
 
+/* hr — h1 ke neeche, full width nahi, fixed width */
+.popular hr {
+  width: 200px;
+  height: 6px;
+  border-radius: 10px;
+  background: #4caf50;
+  border: none;
+  margin: 10px 0 0 0;
+  opacity: 1;
+}
+
+/* ---- Items grid ---- */
 .popular-items {
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 1400px;
-    width: 100%;
-    padding: 0 20px;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.popular-items > div {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(45, 80, 22, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    border: 2px solid transparent;
+/* ============ Responsive ============ */
+@media (max-width: 1024px) {
+  .popular {
+    padding: 50px 24px;
+  }
+
+  .popular-items {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
 }
 
-.popular-items > div:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 16px rgba(76, 175, 80, 0.25);
-    border: 2px solid #4caf50;
+@media (max-width: 768px) {
+  .popular {
+    padding: 40px 16px;
+    min-height: auto;
+  }
+
+  .popular-header-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .popular h1 {
+    font-size: clamp(20px, 5vw, 32px);
+  }
+
+  .popular-view {
+    align-self: flex-start;     /* mobile pe bhi left mein */
+  }
+
+  .popular hr {
+    width: 120px;
+    margin-top: 8px;
+  }
+
+  .popular-items {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+  }
 }
 
-.popular-items img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
+@media (max-width: 480px) {
+  .popular {
+    padding: 30px 12px;
+  }
+
+  .popular-items {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
 }
 
-.popular-items h3 {
-    color: #2d5016;
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 8px;
-    line-height: 1.4;
-}
-
-.popular-items p {
-    color: #666;
-    font-size: 14px;
+@media (max-width: 360px) {
+  .popular-items {
+    grid-template-columns: 1fr;
+  }
 }

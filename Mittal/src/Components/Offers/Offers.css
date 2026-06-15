@@ -1,123 +1,254 @@
+/* =============================================
+   Offers.css
+   Changes from original:
+   - margin: 100px removed — was clipping content to ~400px on laptops
+   - padding changed to clamp() so it scales down on small screens
+   - font-size: 64px → clamp(32px, 5vw, 64px) for responsive headline
+   - font-family moved here since it should be global (also in global.css)
+   - Added flex-wrap and full mobile stacking layout
+   ============================================= */
+
 .offers {
-    min-height: 55vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 60px 80px;
-    background: linear-gradient(to right, #f4fff2, #ffffff);
-    font-family: "Poppins", sans-serif;
-    margin: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  min-height: 55vh;
+  padding: var(--space-2xl) clamp(var(--space-lg), 6vw, var(--space-3xl));
+  /* Removed: margin: 100px — was shrinking content area to ~400px on 768px screens */
+  margin: 0;
+  background: linear-gradient(to right, var(--green-pale-alt), var(--white));
 }
 
+/* ---- Left column ---- */
 .offers-left {
-    max-width: 50%;
+  flex: 1;
+  max-width: 50%;
 }
 
 .tagline {
-    font-size: 16px;
-    color: #2e7d32;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 5px;
+  font-size: 15px;
+  color: var(--green-hover);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
 }
 
 .offers-left h1 {
-    font-size: 64px;
-    font-weight: 700;
-    margin: 10px 0 20px 0;
-    color: #111;
-    line-height: 1.1;
-    letter-spacing: -1px;
+  font-size: clamp(32px, 5vw, 64px); /* was 64px fixed — overflowed on tablets */
+  font-weight: 700;
+  margin: 10px 0 20px;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: -1px;
 }
 
 .offers-left p {
-    font-size: 19px;
-    color: #555;
-    margin: 25px 0;
-    line-height: 1.6;
+  font-size: clamp(15px, 1.5vw, 19px);
+  color: var(--text-secondary);
+  margin: 20px 0;
+  line-height: 1.6;
 }
 
 .offers-left p span {
-    font-weight: 600;
-    color: #000;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
+/* ---- Buttons ---- */
 .offer-buttons {
-    margin-top: 30px;
-    display: flex;
-    gap: 20px;
+  margin-top: var(--space-lg);
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
 }
 
 .btn-primary {
-    background-color: #2e7d32;
-    color: white;
-    padding: 14px 32px;
-    border: none;
-    border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  background-color: var(--green-hover);
+  color: var(--white);
+  padding: 14px 32px;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: 16px;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: var(--transition-base);
 }
 
 .btn-primary:hover {
-    background-color: #256628;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+  background-color: var(--green-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-btn);
 }
 
 .btn-outline {
-    background: transparent;
-    border: 2px solid #555;
-    color: #555;
-    padding: 12px 30px;
-    border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  background: transparent;
+  border: 2px solid var(--text-secondary);
+  color: var(--text-secondary);
+  padding: 12px 30px;
+  border-radius: var(--radius-pill);
+  font-size: 16px;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: var(--transition-base);
 }
 
 .btn-outline:hover {
-    background-color: #555;
-    color: white;
-    transform: translateY(-2px);
+  background-color: var(--text-secondary);
+  color: var(--white);
+  transform: translateY(-2px);
 }
 
+/* ---- Right column ---- */
 .offers-right {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 48%;
-    padding-bottom: 60px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  max-width: 48%;
+  padding-bottom: var(--space-2xl);
 }
 
 .tractor-img {
-    width: 100%;
-    max-width: 520px;
-    height: auto;
-    object-fit: contain;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
 }
 
 .parts-icons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    position: absolute;
-    bottom: -2px;
-    right: 40px;
-    max-width: 380px;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  position: absolute;
+  bottom: -2px;
+  right: 40px;
+  max-width: 380px;
+  align-items: center;
+  justify-content: center;
 }
 
 .parts-icons img {
-    width: 85px;
-    height: 85px;
-    object-fit: contain;
-    transition: all 0.3s ease;
-    mix-blend-mode: darken;
-    background: transparent;
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  transition: var(--transition-base);
+  mix-blend-mode: darken;
+  background: transparent;
+}
+
+.parts-icons img:hover {
+  transform: scale(1.1);
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 1024px) {
+  .offers {
+    gap: var(--space-md);
+    padding: var(--space-xl) clamp(var(--space-md), 4vw, var(--space-2xl));
+  }
+
+  .offers-left {
+    max-width: 55%;
+  }
+
+  .offers-right {
+    max-width: 43%;
+  }
+
+  .parts-icons {
+    right: 10px;
+    max-width: 280px;
+  }
+
+  .parts-icons img {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+/* 768px breakpoint HATA DO ya sirf column layout 480px pe karo */
+/* Yahan flex-direction: column NAHI lagayenge */
+
+@media (max-width: 768px) {
+  .offers {
+    /* flex-direction: column; <-- YEH LINE HATAYI */
+    gap: var(--space-sm);
+    min-height: auto;
+    padding: var(--space-lg) var(--space-sm);
+    align-items: center;
+  }
+
+  .offers-left {
+    max-width: 52%;
+  }
+
+  .offers-right {
+    max-width: 46%;
+    padding-bottom: var(--space-lg);
+  }
+
+  .parts-icons {
+    right: 0px;
+    max-width: 200px;
+  }
+
+  .parts-icons img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .tagline {
+    justify-content: flex-start;
+  }
+
+  .offer-buttons {
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* Sirf bahut choti screen pe stack karo */
+@media (max-width: 480px) {
+  .offers {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .offers-left {
+    max-width: 100%;
+  }
+
+  .offers-right {
+    max-width: 100%;
+    width: 100%;
+    padding-bottom: var(--space-xl);
+  }
+
+  .tagline {
+    justify-content: center;
+  }
+
+  .offer-buttons {
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .parts-icons {
+    position: static;
+    margin-top: var(--space-md);
+    max-width: 100%;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    padding: 12px 24px;
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+  }
 }

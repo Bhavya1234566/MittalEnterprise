@@ -3,8 +3,8 @@ import p2_img from './oil seal and rubber parts2.png'
 import p3_img from './oil seal and rubber parts3.png'
 import p4_img from './oil seal and rubber parts4.png'
 import p5_img from './gear_part_1.png'
-// import p6_img from './product_6.png'
-// import p7_img from './product_7.png'
+import p6_img from './rubber_ring1.webp'
+import p7_img from './gear_part_2.png'
 // import p8_img from './product_8.png'
 // import p9_img from './product_9.png'
 // import p10_img from './product_10.png'
@@ -53,35 +53,35 @@ const all_products = [
     old_price: 150.00,
   },
   {
-    id: 5,
-  name: 'Premium Gear Parts',
-  desc: 'Durable crankshaft oil seal for high-temperature environments.',
-  category: 'Gear Part',
-  badge: 'Bestseller',
-  new_price: 45,
-  old_price: 70,
-  image: p5_img,
+   id: 5,
+    name: "Premium Gear Parts",
+    desc: "Heavy-duty precision gear parts for smooth and reliable tractor performance.",
+    category: 'Gear Parts',
+    badge: 'Bestseller',
+    image: p5_img,
+    new_price: 45.00,
+    old_price: 70.00,
   },
-  // {
-  //   id: 6,
-  //   name: 'Rubber Gasket Set',
-  //   desc: 'Multi-purpose rubber gaskets for engine and exhaust sealing.',
-  //   category: 'Rubber Parts',
-  //   badge: null,
-  //   new_price: 30,
-  //   old_price: 50,
-  //   image: p6_img,
-  // },
-  // {
-  //   id: 7,
-  //   name: 'Differential Gear Pair',
-  //   desc: 'Precision-cut differential gears for tractor rear axle.',
-  //   category: 'Gears',
-  //   badge: 'Popular',
-  //   new_price: 110,
-  //   old_price: 160,
-  //   image: p7_img,
-  // },
+  {
+    id: 6,
+    name: 'Rubber Gasket Set',
+    desc: 'Multi-purpose rubber gaskets for engine and exhaust sealing.',
+    category: 'Rubber Parts',
+    badge: "popular",
+    new_price: 30,
+    old_price: 50,
+    image: p6_img,
+  },
+  {
+    id: 7,
+    name: 'Differential Gear Pair',
+    desc: 'Precision-cut differential gears for tractor rear axle.',
+    category: 'Gears',
+    badge: 'Popular',
+    new_price: 110,
+    old_price: 160,
+    image: p7_img,
+  },
   // {
   //   id: 8,
   //   name: 'Nut & Washer Combo Pack',
