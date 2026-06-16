@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./NavCategory.css";
 
 const categories = ["Gear Parts", "Oil Seal", "Nuts & Bolts", "Filters", "Bearings"];
-const brands = ["Mahindra", "John Deere", "Sonalika", "New Holland", "Swaraj", "TAFE"];
+const brands = ["Mahindra", "John Deere", "Sonalika", "New Holland", "Swaraj"];
 
 const NavLinks = ({ openDropdown, toggleDropdown, closeMobile }) => (
   <>
