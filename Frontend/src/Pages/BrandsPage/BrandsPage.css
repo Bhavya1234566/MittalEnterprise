@@ -1,0 +1,144 @@
+.brands-page {
+    width: 90%;
+    margin: 60px auto;
+}
+
+.brands-page h1 {
+    text-align: center;
+    color: #1f5d24;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.brands-page p {
+    text-align: center;
+    color: #666;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.brands-page hr {
+    width: 100px;
+    height: 5px;
+    background: #4caf50;
+    border: none;
+    border-radius: 10px;
+    margin: 20px auto 50px;
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+/* Brand Card */
+
+.brand-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 35px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #222;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 220px;
+}
+
+.brand-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* Logo */
+
+.brand-card img {
+    width: 170px;
+    height: 90px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Brand Name */
+
+.brand-card h3 {
+    margin-top: 25px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1f1f1f;
+    text-align: center;
+    width: 100%;
+}
+
+/* Tablet */
+
+@media (max-width: 992px) {
+
+    .brands-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .brands-page h1 {
+        font-size: 34px;
+    }
+
+    .brand-card {
+        min-height: 210px;
+    }
+
+    .brand-card img {
+        width: 150px;
+        height: 80px;
+    }
+
+    .brand-card h3 {
+        font-size: 22px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 576px) {
+
+    .brands-page {
+        width: 95%;
+        margin: 40px auto;
+    }
+
+    .brands-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .brands-page h1 {
+        font-size: 28px;
+    }
+
+    .brands-page p {
+        font-size: 14px;
+    }
+
+    .brand-card {
+        min-height: 190px;
+        padding: 25px;
+    }
+
+    .brand-card img {
+        width: 140px;
+        height: 70px;
+    }
+
+    .brand-card h3 {
+        font-size: 20px;
+        margin-top: 18px;
+    }
+}

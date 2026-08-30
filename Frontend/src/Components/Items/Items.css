@@ -1,0 +1,536 @@
+/* ==========================================================
+   Items.css
+========================================================== */
+
+.item{
+    position:relative;
+    overflow:hidden;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:14px;
+
+    border:2px solid transparent;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.35s ease;
+}
+
+.item:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#43a047;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.15);
+
+}
+
+/* ==========================================================
+   IMAGE
+========================================================== */
+
+.item-link{
+
+    text-decoration:none;
+
+}
+
+.item-img{
+
+    position:relative;
+
+    width:100%;
+
+    aspect-ratio:4/3;
+
+    overflow:hidden;
+
+    border-radius:14px;
+
+    background:#eef7ef;
+
+}
+
+.item-img img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.45s ease;
+
+}
+
+.item:hover .item-img img{
+
+    transform:scale(1.08);
+
+}
+
+/* ==========================================================
+   IMAGE OVERLAY
+========================================================== */
+
+.image-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.15);
+
+    opacity:0;
+
+    transition:.35s ease;
+
+}
+
+.item:hover .image-overlay{
+
+    opacity:1;
+
+}
+
+/* ==========================================================
+   VIEW PRODUCT BUTTON
+========================================================== */
+
+.view-product{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:150px;
+
+    height:46px;
+
+    background:#1f5d24;
+
+    color:#fff;
+
+    border-radius:30px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
+
+    transform:translateY(12px);
+
+    transition:.35s ease;
+
+}
+
+.item:hover .view-product{
+
+    transform:translateY(0);
+
+}
+
+.view-product:hover{
+
+    background:#2e7d32;
+
+}
+
+/* ==========================================================
+   BADGE
+========================================================== */
+
+.item-badge{
+
+    position:absolute;
+
+    top:12px;
+    left:12px;
+
+    background:#1f5d24;
+
+    color:#fff;
+
+    padding:6px 12px;
+
+    border-radius:30px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    z-index:10;
+
+}
+
+/* ==========================================================
+   TITLE
+========================================================== */
+
+.item-title{
+
+    text-decoration:none;
+
+}
+
+.item-title p{
+
+    margin:0;
+
+    color:#222;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    line-height:1.5;
+
+    transition:.3s;
+
+}
+
+.item-title:hover p{
+
+    color:#2e7d32;
+
+}
+
+/* ==========================================================
+   PRICE
+========================================================== */
+
+.item-prices{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.item-price-new{
+
+    color:#1f5d24;
+
+    font-size:23px;
+
+    font-weight:700;
+
+}
+
+.item-price-old{
+
+    color:#8b8b8b;
+
+    font-size:16px;
+
+    text-decoration:line-through;
+
+}
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+.item-cart{
+
+    width:100%;
+
+    margin-top:auto;
+
+    padding:13px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#1f5d24;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.item-cart:hover{
+
+    background:#43a047;
+
+    transform:translateY(-2px);
+
+}
+
+.item-cart:active{
+
+    transform:scale(.97);
+
+}
+
+/* ==========================================================
+   ADDED BUTTON
+========================================================== */
+
+.added-btn{
+
+    background:#43a047 !important;
+
+    color:#fff;
+
+    cursor:not-allowed;
+
+    pointer-events:none;
+
+}
+
+.added-btn:hover{
+
+    background:#43a047 !important;
+
+    transform:none;
+
+}
+
+/* ==========================================================
+   SUCCESS CARD
+========================================================== */
+
+.success-card{
+
+    animation:successCard .7s ease;
+
+}
+
+@keyframes successCard{
+
+0%{
+
+transform:scale(1);
+
+}
+
+30%{
+
+transform:scale(1.03);
+
+}
+
+60%{
+
+transform:scale(.98);
+
+}
+
+100%{
+
+transform:scale(1);
+
+box-shadow:0 0 35px rgba(67,160,71,.45);
+
+}
+
+}
+
+/* ==========================================================
+   BUTTON CLICK
+========================================================== */
+
+.clicked{
+
+    animation:buttonPop .45s ease;
+
+}
+
+@keyframes buttonPop{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+/* ==========================================================
+   CONFETTI
+========================================================== */
+
+.card-confetti{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    pointer-events:none;
+
+    z-index:999;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:992px){
+
+.item{
+
+padding:18px;
+
+}
+
+.item-price-new{
+
+font-size:20px;
+
+}
+
+.item-price-old{
+
+font-size:15px;
+
+}
+
+.view-product{
+
+width:140px;
+
+height:42px;
+
+font-size:14px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.item{
+
+padding:16px;
+
+}
+
+.item-title p{
+
+font-size:16px;
+
+}
+
+.item-price-new{
+
+font-size:18px;
+
+}
+
+.item-price-old{
+
+font-size:14px;
+
+}
+
+.item-cart{
+
+font-size:15px;
+
+padding:11px;
+
+}
+
+.view-product{
+
+width:130px;
+
+height:40px;
+
+font-size:13px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.item{
+
+padding:14px;
+
+}
+
+.item-title p{
+
+font-size:15px;
+
+}
+
+.item-price-new{
+
+font-size:17px;
+
+}
+
+.item-price-old{
+
+font-size:13px;
+
+}
+
+.item-cart{
+
+font-size:14px;
+
+padding:10px;
+
+}
+
+.view-product{
+
+width:120px;
+
+height:38px;
+
+font-size:12px;
+
+}
+
+}

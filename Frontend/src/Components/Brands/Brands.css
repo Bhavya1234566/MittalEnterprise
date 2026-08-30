@@ -1,0 +1,275 @@
+/* ==========================================
+   Brands Section
+========================================== */
+
+.brands{
+    padding:70px 5%;
+    background:#eef5ef;
+    overflow:hidden;
+}
+
+/* ==========================================
+   Header
+========================================== */
+
+.brands-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:60px;
+}
+
+.brands h1{
+    color:#1f5d24;
+    font-size:48px;
+    font-weight:700;
+    margin:0;
+}
+
+.brands hr{
+    width:120px;
+    height:5px;
+    background:#43a047;
+    border:none;
+    border-radius:20px;
+    margin-top:10px;
+}
+
+/* ==========================================
+   View All
+========================================== */
+
+.view-all-btn{
+
+    text-decoration:none;
+
+    color:#2e7d32;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.view-all-btn:hover{
+
+    color:#1b5e20;
+
+    transform:translateX(5px);
+
+}
+
+/* ==========================================
+   Slider
+========================================== */
+
+.brand-slider{
+
+    width:100%;
+
+    overflow:hidden;
+
+}
+
+.brand-track{
+
+    display:flex;
+
+    width:max-content;
+
+    animation:scroll 22s linear infinite;
+
+}
+
+.brand-slider:hover .brand-track{
+
+    animation-play-state:paused;
+
+}
+
+/* ==========================================
+   Brand Card
+========================================== */
+
+.logo-box{
+
+    width:220px;
+
+    height:120px;
+
+    margin:0 18px;
+
+    background:#fff;
+
+    border-radius:15px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+    text-decoration:none;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+    transition:.35s;
+}
+
+.logo-box:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 12px 28px rgba(0,0,0,.16);
+
+}
+
+.logo-box img{
+
+    max-width:150px;
+
+    max-height:80px;
+
+    object-fit:contain;
+
+    transition:.35s;
+}
+
+.logo-box:hover img{
+
+    transform:scale(1.08);
+
+}
+
+/* ==========================================
+   Animation
+========================================== */
+
+@keyframes scroll{
+
+from{
+
+transform:translateX(0);
+
+}
+
+to{
+
+transform:translateX(-50%);
+
+}
+
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media(max-width:992px){
+
+.brands h1{
+
+font-size:38px;
+
+}
+
+.logo-box{
+
+width:190px;
+
+height:110px;
+
+}
+
+.logo-box img{
+
+max-width:130px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.brands{
+
+padding:60px 20px;
+
+}
+
+.brands-header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:20px;
+
+}
+
+.view-all-btn{
+
+font-size:17px;
+
+}
+
+.brands h1{
+
+font-size:32px;
+
+}
+
+.logo-box{
+
+width:170px;
+
+height:100px;
+
+margin:0 12px;
+
+}
+
+.logo-box img{
+
+max-width:110px;
+
+max-height:65px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.brands h1{
+
+font-size:28px;
+
+}
+
+.view-all-btn{
+
+font-size:16px;
+
+}
+
+.logo-box{
+
+width:150px;
+
+height:90px;
+
+}
+
+.logo-box img{
+
+max-width:100px;
+
+max-height:60px;
+
+}
+
+}

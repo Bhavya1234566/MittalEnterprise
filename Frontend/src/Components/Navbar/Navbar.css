@@ -1,0 +1,504 @@
+/* ==========================================
+   Navbar Wrapper
+========================================== */
+
+.navbar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ==========================================
+   Navbar
+========================================== */
+
+.navbar-wrapper .navbar {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 30px;
+  gap: 30px;
+
+  box-sizing: border-box;
+}
+
+
+/* ==========================================
+   Logo
+========================================== */
+
+.nav-logo {
+  flex: 0 0 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.nav-logo a {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo img {
+  width: 90px;
+  height: auto;
+  display: block;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-logo img:hover {
+  transform: scale(1.05);
+}
+
+
+/* ==========================================
+   Search
+========================================== */
+
+.nav-login-cart-search {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+}
+
+.nav-login-cart-search input {
+  width: 100%;
+  max-width: 550px;
+
+  padding: 10px 15px;
+
+  border: 2px solid #4caf50;
+  border-radius: 6px;
+
+  outline: none;
+  box-sizing: border-box;
+}
+
+.nav-login-cart-search button {
+  white-space: nowrap;
+  padding: 10px 22px;
+}
+
+
+/* ==========================================
+   Login + Cart
+========================================== */
+
+.nav-login-cart-login {
+  flex: 0 0 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 20px;
+}
+
+
+/* ==========================================
+   Cart
+========================================== */
+
+.cart-wrapper {
+  position: relative;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
+}
+
+.cart-wrapper img {
+  width: 32px;
+  height: 32px;
+
+  object-fit: contain;
+}
+
+.item-count {
+  position: absolute;
+
+  top: -6px;
+  right: -6px;
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #2e7d32;
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* ==========================================
+   Category
+========================================== */
+
+.nav-category-bar {
+  border-top: 1px solid #ececec;
+}
+
+.nav-hamburger-slot {
+  display: none;
+}
+
+
+/* ==========================================
+   User Profile
+========================================== */
+
+.user-profile {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+}
+
+
+/* ==========================================
+   User Avatar
+========================================== */
+
+.user-avatar {
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #1d6330;
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.user-avatar:hover {
+  background: #164d25;
+}
+
+
+/* ==========================================
+   User Dropdown
+   IMPORTANT:
+   No display:none
+   No hover rule
+   React controls this using profileOpen
+========================================== */
+
+.user-dropdown {
+  position: absolute;
+
+  top: 52px;
+  right: 0;
+
+  width: 245px;
+
+  background: #ffffff;
+
+  border-radius: 8px;
+
+  padding: 14px;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+
+  z-index: 9999;
+}
+
+
+/* ==========================================
+   User Info
+========================================== */
+
+.user-info {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+
+/* ==========================================
+   Dropdown Avatar
+========================================== */
+
+.dropdown-avatar {
+  width: 40px;
+  height: 40px;
+
+  min-width: 40px;
+
+  border-radius: 50%;
+
+  background: #1d6330;
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+/* ==========================================
+   User Details
+========================================== */
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.user-details strong {
+  display: block;
+
+  color: #333333;
+
+  font-size: 14px;
+
+  margin-bottom: 4px;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.user-details small {
+  display: block;
+
+  color: #777777;
+
+  font-size: 11px;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* ==========================================
+   Logout Button
+========================================== */
+
+.logout-btn {
+  width: 100%;
+  height: 36px;
+
+  margin-top: 12px;
+
+  border: 1px solid #1d6330;
+  border-radius: 4px;
+
+  background: #ffffff;
+  color: #1d6330;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #1d6330;
+  color: #ffffff;
+}
+
+
+/* ==========================================
+   Tablet
+========================================== */
+
+@media (max-width: 991px) {
+
+  .nav-category-bar {
+    display: none;
+  }
+
+  .nav-hamburger-slot {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-wrapper .navbar {
+    padding: 15px 20px;
+    gap: 20px;
+  }
+
+  .nav-logo {
+    flex: 0 0 auto;
+  }
+
+  .nav-login-cart-search {
+    flex: 1;
+  }
+
+  .nav-login-cart-login {
+    flex: 0 0 auto;
+  }
+
+  .nav-login-cart-search input {
+    max-width: 350px;
+  }
+
+}
+
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media (max-width: 768px) {
+
+  .navbar-wrapper .navbar {
+    flex-wrap: wrap;
+
+    padding: 12px 15px;
+
+    gap: 15px;
+  }
+
+  .nav-logo {
+    flex: 0 0 auto;
+  }
+
+  .nav-logo img {
+    width: 70px;
+  }
+
+  .nav-login-cart-login {
+    margin-left: auto;
+    gap: 15px;
+  }
+
+  .nav-login-cart-search {
+    order: 3;
+
+    width: 100%;
+
+    justify-content: flex-start;
+  }
+
+  .nav-login-cart-search input {
+    max-width: 100%;
+  }
+
+  /* Dropdown on mobile */
+
+  .user-dropdown {
+    right: -10px;
+    width: 230px;
+  }
+
+}
+
+
+/* ==========================================
+   Small Mobile
+========================================== */
+
+@media (max-width: 480px) {
+
+  .navbar-wrapper .navbar {
+    padding: 10px;
+  }
+
+  .nav-logo img {
+    width: 60px;
+  }
+
+  .nav-login-cart-search {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-login-cart-search button {
+    width: 100%;
+  }
+
+  .nav-login-cart-login {
+    gap: 12px;
+  }
+
+  .cart-wrapper {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cart-wrapper img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .item-count {
+    width: 18px;
+    height: 18px;
+
+    font-size: 10px;
+  }
+
+  .user-avatar {
+    width: 38px;
+    height: 38px;
+
+    font-size: 15px;
+  }
+
+  .user-dropdown {
+    top: 48px;
+    right: -5px;
+    width: 220px;
+  }
+
+}

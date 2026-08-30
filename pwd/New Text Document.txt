@@ -1,0 +1,8 @@
+frontend : npm run dev
+
+backend: python -m venv venv
+venv\Scripts\activate
+
+login : "name": "Test User",
+    "email": "test@gmail.com",
+    "password": "Test@123"

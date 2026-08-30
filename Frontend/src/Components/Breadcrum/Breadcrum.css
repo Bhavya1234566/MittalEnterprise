@@ -1,0 +1,32 @@
+.breadcrumb {
+  background: #f8f9fa;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 15px 0;
+}
+
+.breadcrumb-container {
+  width: 90%;
+  max-width: 1200px;
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+.breadcrumb-container a {
+  text-decoration: none;
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+.breadcrumb-container a:hover {
+  color: #4caf50;
+}
+
+.separator {
+  margin: 0 10px;
+  color: #777;
+}
+
+.current-page {
+  color: #555;
+  font-weight: 600;
+}
