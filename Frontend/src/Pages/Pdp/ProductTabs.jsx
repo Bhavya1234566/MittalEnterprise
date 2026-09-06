@@ -8,6 +8,7 @@ const ProductTabs = ({ product }) => {
     <div className="product-tabs">
 
       <div className="tab-header">
+
         <button
           className={tab === "description" ? "active" : ""}
           onClick={() => setTab("description")}
@@ -21,48 +22,69 @@ const ProductTabs = ({ product }) => {
         >
           Specifications
         </button>
+
       </div>
 
       <div className="tab-content">
 
         {tab === "description" ? (
-          <p>{product.desc}</p>
+
+          <p>
+            {product.description || "No description available."}
+          </p>
+
         ) : (
+
           <table className="spec-table">
+
             <tbody>
 
               <tr>
                 <th>Brand</th>
-                <td>{product.brand}</td>
+                <td>{product.brand || "N/A"}</td>
               </tr>
 
               <tr>
                 <th>Category</th>
-                <td>{product.category}</td>
+                <td>{product.category || "N/A"}</td>
+              </tr>
+
+              <tr>
+                <th>Model</th>
+                <td>{product.model || "N/A"}</td>
               </tr>
 
               <tr>
                 <th>SKU</th>
-                <td>{product.sku}</td>
+                <td>
+                  {product.sku || `MT-${product.id}`}
+                </td>
               </tr>
 
               <tr>
                 <th>Material</th>
-                <td>{product.material}</td>
+                <td>{product.material || "N/A"}</td>
               </tr>
 
               <tr>
                 <th>Weight</th>
-                <td>{product.weight}</td>
+                <td>{product.weight || "N/A"}</td>
               </tr>
 
               <tr>
                 <th>Warranty</th>
-                <td>{product.warranty}</td>
+                <td>{product.warranty || "N/A"}</td>
+              </tr>
+
+              <tr>
+                <th>Stock</th>
+                <td>{product.stock || "N/A"}</td>
               </tr>
 
             </tbody>
+
           </table>
+
         )}
 
       </div>

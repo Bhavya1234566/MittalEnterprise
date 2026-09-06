@@ -3,35 +3,64 @@ from flask_cors import CORS
 
 from config import Config
 from models import db
+
 from routes.auth import auth, bcrypt
+from routes.products import products
+from routes.wishlist import wishlist
+from routes.cart import cart
 
 
 app = Flask(__name__)
 
-# Configuration
 app.config.from_object(Config)
 
-# Database
+# ==========================================================
+# DATABASE
+# ==========================================================
+
 db.init_app(app)
 
-# Password hashing
+# ==========================================================
+# BCRYPT
+# ==========================================================
+
 bcrypt.init_app(app)
 
-# React frontend
+# ==========================================================
+# CORS
+# ==========================================================
+
 CORS(app)
 
+# ==========================================================
+# BLUEPRINTS
+# ==========================================================
 
-# Authentication routes
 app.register_blueprint(auth)
 
+app.register_blueprint(products)
+
+app.register_blueprint(wishlist)
+
+app.register_blueprint(cart)
+
+
+# ==========================================================
+# HOME
+# ==========================================================
 
 @app.route("/")
 def home():
 
     return {
-        "message": "Mittal Enterprises Backend is running!"
+        "message":
+        "Mittal Enterprises Backend is running!"
     }
 
+
+# ==========================================================
+# START SERVER
+# ==========================================================
 
 if __name__ == "__main__":
 

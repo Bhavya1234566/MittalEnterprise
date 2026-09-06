@@ -1,61 +1,274 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, {
+  useContext,
+  useState,
+} from "react";
+
+import { Link, useNavigate } from "react-router-dom";
+
 import "./Items.css";
 
-import { CartContext } from "../../Context/ShopContext";
-import all_products from "../assets/all_products";
+import {
+  CartContext,
+} from "../../Context/ShopContext";
 
 import toast from "react-hot-toast";
-import ConfettiExplosion from "react-confetti-explosion";
+
+import ConfettiExplosion
+  from "react-confetti-explosion";
+
 
 const Items = (props) => {
-  const { addToCart, cartItems } = useContext(CartContext);
 
-  const [explode, setExplode] = useState(false);
-  const [animateCard, setAnimateCard] = useState(false);
+  const navigate = useNavigate();
 
-  const product = all_products.find(
-    (item) => item.id === props.id
-  );
+  const {
+    addToCart,
+    cartItems,
 
-  // Check if already added in cart
-  const isAdded = cartItems.some(
-    (item) => item.id === props.id
-  );
+    addToWishlist,
+    removeFromWishlist,
 
-  const handleAddToCart = () => {
+    isInWishlist,
 
-    if (isAdded) return;
+    user,
+  } = useContext(CartContext);
 
-    addToCart(product, 1);
 
-    toast.success("🛒 Product Added To Cart!", {
-      icon: "🎉",
-    });
+  const [explode, setExplode] =
+    useState(false);
 
-    setExplode(true);
-    setAnimateCard(true);
+  const [animateCard, setAnimateCard] =
+    useState(false);
 
-    setTimeout(() => {
-      setExplode(false);
-    }, 1800);
+  const [heartAnimation, setHeartAnimation] =
+    useState(false);
 
-    setTimeout(() => {
-      setAnimateCard(false);
-    }, 700);
-  };
+
+  // ======================================================
+  // PRODUCT
+  // ======================================================
+
+  const product =
+    props.product || props;
+
+
+  // ======================================================
+  // CART STATUS
+  // ======================================================
+
+  const isAdded =
+    cartItems.some(
+      (item) =>
+        item.id === product.id
+    );
+
+
+  // ======================================================
+  // WISHLIST STATUS
+  // ======================================================
+
+  const isWishlisted =
+    isInWishlist(
+      product.id
+    );
+
+
+  // ======================================================
+  // ADD TO CART
+  // ======================================================
+
+  const handleAddToCart =
+    async () => {
+
+      if (!user) {
+
+        toast.error(
+          "Please login to add products to cart."
+        );
+
+        navigate("/login");
+
+        return;
+
+      }
+
+
+      if (isAdded) {
+        return;
+      }
+
+
+      const result =
+        await addToCart(
+          product,
+          1
+        );
+
+
+      if (
+        result?.loginRequired
+      ) {
+
+        toast.error(
+          "Please login first."
+        );
+
+        navigate("/login");
+
+        return;
+
+      }
+
+
+      if (
+        !result?.success
+      ) {
+
+        toast.error(
+          "Unable to add product to cart."
+        );
+
+        return;
+
+      }
+
+
+      toast.success(
+        "🛒 Product Added To Cart!",
+        {
+          icon: "🎉",
+        }
+      );
+
+
+      setExplode(true);
+
+      setAnimateCard(true);
+
+
+      setTimeout(
+        () =>
+          setExplode(false),
+        1800
+      );
+
+      setTimeout(
+        () =>
+          setAnimateCard(false),
+        700
+      );
+
+    };
+
+
+  // ======================================================
+  // WISHLIST
+  // ======================================================
+
+  const handleWishlist =
+    async (e) => {
+
+      e.preventDefault();
+
+      e.stopPropagation();
+
+
+      if (!user) {
+
+        toast.error(
+          "Please login to use wishlist."
+        );
+
+        navigate("/login");
+
+        return;
+
+      }
+
+
+      setHeartAnimation(true);
+
+
+      setTimeout(
+        () =>
+          setHeartAnimation(false),
+        400
+      );
+
+
+      if (isWishlisted) {
+
+        await removeFromWishlist(
+          product.id
+        );
+
+        toast.success(
+          "Removed from wishlist"
+        );
+
+        return;
+
+      }
+
+
+      const result =
+        await addToWishlist(
+          product
+        );
+
+
+      if (
+        result?.loginRequired
+      ) {
+
+        toast.error(
+          "Please login first."
+        );
+
+        navigate("/login");
+
+        return;
+
+      }
+
+
+      if (
+        result?.success
+      ) {
+
+        toast.success(
+          "❤️ Added to wishlist"
+        );
+
+      } else {
+
+        toast.error(
+          "Unable to update wishlist"
+        );
+
+      }
+
+    };
+
 
   return (
+
     <div
       className={`item ${
-        animateCard ? "success-card" : ""
+        animateCard
+          ? "success-card"
+          : ""
       }`}
     >
 
-      {/* Confetti */}
+      {/* ==================================================
+          CONFETTI
+      ================================================== */}
 
       {explode && (
+
         <div className="card-confetti">
+
           <ConfettiExplosion
             force={0.9}
             duration={2200}
@@ -70,85 +283,145 @@ const Items = (props) => {
               "#9C27B0",
             ]}
           />
+
         </div>
+
       )}
 
-      {/* Product Image */}
 
-      <Link
-        to={`/product/${props.id}`}
-        className="item-link"
-      >
-        <div className="item-img">
+      {/* ==================================================
+          IMAGE
+      ================================================== */}
+
+      <div className="item-img">
+
+        <Link
+          to={`/product/${product.id}`}
+          className="item-link"
+        >
 
           <img
-            src={props.image}
-            alt={props.name}
+            src={product.image}
+            alt={product.name}
           />
 
-          {/* Hover Overlay */}
-
           <div className="image-overlay">
-    <span className="view-product">
-        👁 View Product
-    </span>
-</div>
 
-          {props.badge && (
-            <div className="item-badge">
-              {props.badge}
-            </div>
-          )}
+            <span className="view-product">
+              👁 View Product
+            </span>
 
-        </div>
-      </Link>
+          </div>
 
-      {/* Product Name */}
+        </Link>
+
+
+        {/* BADGE */}
+
+        {product.badge && (
+
+          <div className="item-badge">
+            {product.badge}
+          </div>
+
+        )}
+
+
+        {/* ==================================================
+            WISHLIST
+        ================================================== */}
+
+        <button
+          type="button"
+          className={`wishlist-btn ${
+            isWishlisted
+              ? "active"
+              : ""
+          } ${
+            heartAnimation
+              ? "heart-animation"
+              : ""
+          }`}
+          onClick={handleWishlist}
+          title={
+            isWishlisted
+              ? "Remove from Wishlist"
+              : "Add to Wishlist"
+          }
+        >
+
+          {isWishlisted
+            ? "❤️"
+            : "🤍"}
+
+        </button>
+
+      </div>
+
+
+      {/* ==================================================
+          TITLE
+      ================================================== */}
 
       <Link
-        to={`/product/${props.id}`}
+        to={`/product/${product.id}`}
         className="item-title"
       >
-        <p>{props.name}</p>
+
+        <p>
+          {product.name}
+        </p>
+
       </Link>
 
-      {/* Price */}
+
+      {/* ==================================================
+          PRICE
+      ================================================== */}
 
       <div className="item-prices">
 
         <div className="item-price-new">
-          ₹{props.new_price}
+          ₹{product.new_price}
         </div>
 
-        <div className="item-price-old">
-          ₹{props.old_price}
-        </div>
+        {product.old_price && (
+
+          <div className="item-price-old">
+            ₹{product.old_price}
+          </div>
+
+        )}
 
       </div>
 
-      {/* Button */}
+
+      {/* ==================================================
+          CART
+      ================================================== */}
 
       <button
         className={`item-cart ${
-          animateCard ? "clicked" : ""
+          animateCard
+            ? "clicked"
+            : ""
         } ${
-          isAdded ? "added-btn" : ""
+          isAdded
+            ? "added-btn"
+            : ""
         }`}
         onClick={handleAddToCart}
         disabled={isAdded}
       >
-        {isAdded ? (
-          <>
-            ✅ Added To Cart
-          </>
-        ) : (
-          <>
-            🛒 Shop Now
-          </>
-        )}
+
+        {isAdded
+          ? "✅ Added To Cart"
+          : "🛒 Shop Now"}
+
       </button>
 
     </div>
+
   );
 };
 

@@ -2,535 +2,550 @@
    Items.css
 ========================================================== */
 
-.item{
-    position:relative;
-    overflow:hidden;
+.item {
+    position: relative;
+    overflow: hidden;
 
-    background:#fff;
+    background: #fff;
 
-    border-radius:18px;
+    border-radius: 18px;
 
-    padding:20px;
+    padding: 20px;
 
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
 
-    gap:14px;
+    gap: 14px;
 
-    border:2px solid transparent;
+    border: 2px solid transparent;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 
-    transition:.35s ease;
+    transition: 0.35s ease;
 }
 
-.item:hover{
+.item:hover {
+    transform: translateY(-8px);
 
-    transform:translateY(-8px);
+    border-color: #43a047;
 
-    border-color:#43a047;
-
-    box-shadow:0 18px 40px rgba(0,0,0,.15);
-
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* ==========================================================
    IMAGE
 ========================================================== */
 
-.item-link{
-
-    text-decoration:none;
-
+.item-link {
+    text-decoration: none;
 }
 
-.item-img{
+.item-img {
+    position: relative;
 
-    position:relative;
+    width: 100%;
 
-    width:100%;
+    aspect-ratio: 4 / 3;
 
-    aspect-ratio:4/3;
+    overflow: hidden;
 
-    overflow:hidden;
+    border-radius: 14px;
 
-    border-radius:14px;
-
-    background:#eef7ef;
-
+    background: #eef7ef;
 }
 
-.item-img img{
+.item-img img {
+    width: 100%;
+    height: 100%;
 
-    width:100%;
-    height:100%;
+    object-fit: cover;
 
-    object-fit:cover;
-
-    transition:.45s ease;
-
+    transition: 0.45s ease;
 }
 
-.item:hover .item-img img{
-
-    transform:scale(1.08);
-
+.item:hover .item-img img {
+    transform: scale(1.08);
 }
 
 /* ==========================================================
    IMAGE OVERLAY
 ========================================================== */
 
-.image-overlay{
+.image-overlay {
+    position: absolute;
 
-    position:absolute;
+    inset: 0;
 
-    inset:0;
+    display: flex;
 
-    display:flex;
+    justify-content: center;
 
-    justify-content:center;
+    align-items: center;
 
-    align-items:center;
+    background: rgba(0, 0, 0, 0.15);
 
-    background:rgba(0,0,0,.15);
+    opacity: 0;
 
-    opacity:0;
-
-    transition:.35s ease;
-
+    transition: 0.35s ease;
 }
 
-.item:hover .image-overlay{
-
-    opacity:1;
-
+.item:hover .image-overlay {
+    opacity: 1;
 }
 
 /* ==========================================================
    VIEW PRODUCT BUTTON
 ========================================================== */
 
-.view-product{
+.view-product {
+    display: flex;
 
-    display:flex;
+    justify-content: center;
 
-    justify-content:center;
+    align-items: center;
 
-    align-items:center;
+    width: 150px;
 
-    width:150px;
+    height: 46px;
 
-    height:46px;
+    background: #1f5d24;
 
-    background:#1f5d24;
+    color: #fff;
 
-    color:#fff;
+    border-radius: 30px;
 
-    border-radius:30px;
+    font-size: 15px;
 
-    font-size:15px;
+    font-weight: 700;
 
-    font-weight:700;
+    letter-spacing: 0.3px;
 
-    letter-spacing:.3px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 
-    box-shadow:0 10px 20px rgba(0,0,0,.25);
+    transform: translateY(12px);
 
-    transform:translateY(12px);
-
-    transition:.35s ease;
-
+    transition: 0.35s ease;
 }
 
-.item:hover .view-product{
-
-    transform:translateY(0);
-
+.item:hover .view-product {
+    transform: translateY(0);
 }
 
-.view-product:hover{
-
-    background:#2e7d32;
-
+.view-product:hover {
+    background: #2e7d32;
 }
 
 /* ==========================================================
    BADGE
 ========================================================== */
 
-.item-badge{
+.item-badge {
+    position: absolute;
 
-    position:absolute;
+    top: 12px;
+    left: 12px;
 
-    top:12px;
-    left:12px;
+    background: #1f5d24;
 
-    background:#1f5d24;
+    color: #fff;
 
-    color:#fff;
+    padding: 6px 12px;
 
-    padding:6px 12px;
+    border-radius: 30px;
 
-    border-radius:30px;
+    font-size: 11px;
 
-    font-size:11px;
+    font-weight: 700;
 
-    font-weight:700;
+    z-index: 10;
+}
 
-    z-index:10;
+/* ==========================================================
+   WISHLIST HEART BUTTON
+========================================================== */
 
+.wishlist-btn {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    color: #777;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+    transition: 0.3s ease;
+}
+
+.wishlist-btn:hover {
+    transform: scale(1.1);
+
+    background: #fff;
+
+    color: #e53935;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.wishlist-btn.active {
+    color: #e53935;
+
+    background: #fff5f5;
+}
+
+.wishlist-btn.active:hover {
+    color: #c62828;
+
+    transform: scale(1.1);
+}
+
+.wishlist-btn:active {
+    transform: scale(0.9);
 }
 
 /* ==========================================================
    TITLE
 ========================================================== */
 
-.item-title{
-
-    text-decoration:none;
-
+.item-title {
+    text-decoration: none;
 }
 
-.item-title p{
+.item-title p {
+    margin: 0;
 
-    margin:0;
+    color: #222;
 
-    color:#222;
+    font-size: 17px;
 
-    font-size:17px;
+    font-weight: 600;
 
-    font-weight:600;
+    line-height: 1.5;
 
-    line-height:1.5;
-
-    transition:.3s;
-
+    transition: 0.3s;
 }
 
-.item-title:hover p{
-
-    color:#2e7d32;
-
+.item-title:hover p {
+    color: #2e7d32;
 }
 
 /* ==========================================================
    PRICE
 ========================================================== */
 
-.item-prices{
+.item-prices {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
-
-    gap:12px;
-
+    gap: 12px;
 }
 
-.item-price-new{
+.item-price-new {
+    color: #1f5d24;
 
-    color:#1f5d24;
+    font-size: 23px;
 
-    font-size:23px;
-
-    font-weight:700;
-
+    font-weight: 700;
 }
 
-.item-price-old{
+.item-price-old {
+    color: #8b8b8b;
 
-    color:#8b8b8b;
+    font-size: 16px;
 
-    font-size:16px;
-
-    text-decoration:line-through;
-
+    text-decoration: line-through;
 }
 
 /* ==========================================================
    BUTTON
 ========================================================== */
 
-.item-cart{
+.item-cart {
+    width: 100%;
 
-    width:100%;
+    margin-top: auto;
 
-    margin-top:auto;
+    padding: 13px;
 
-    padding:13px;
+    border: none;
 
-    border:none;
+    border-radius: 10px;
 
-    border-radius:10px;
+    background: #1f5d24;
 
-    background:#1f5d24;
+    color: #fff;
 
-    color:#fff;
+    font-size: 16px;
 
-    font-size:16px;
+    font-weight: 700;
 
-    font-weight:700;
+    cursor: pointer;
 
-    cursor:pointer;
-
-    transition:.3s;
-
+    transition: 0.3s;
 }
 
-.item-cart:hover{
+.item-cart:hover {
+    background: #43a047;
 
-    background:#43a047;
-
-    transform:translateY(-2px);
-
+    transform: translateY(-2px);
 }
 
-.item-cart:active{
-
-    transform:scale(.97);
-
+.item-cart:active {
+    transform: scale(0.97);
 }
 
 /* ==========================================================
    ADDED BUTTON
 ========================================================== */
 
-.added-btn{
+.added-btn {
+    background: #43a047 !important;
 
-    background:#43a047 !important;
+    color: #fff;
 
-    color:#fff;
+    cursor: not-allowed;
 
-    cursor:not-allowed;
-
-    pointer-events:none;
-
+    pointer-events: none;
 }
 
-.added-btn:hover{
+.added-btn:hover {
+    background: #43a047 !important;
 
-    background:#43a047 !important;
-
-    transform:none;
-
+    transform: none;
 }
 
 /* ==========================================================
    SUCCESS CARD
 ========================================================== */
 
-.success-card{
-
-    animation:successCard .7s ease;
-
+.success-card {
+    animation: successCard 0.7s ease;
 }
 
-@keyframes successCard{
+@keyframes successCard {
+    0% {
+        transform: scale(1);
+    }
 
-0%{
+    30% {
+        transform: scale(1.03);
+    }
 
-transform:scale(1);
+    60% {
+        transform: scale(0.98);
+    }
 
-}
+    100% {
+        transform: scale(1);
 
-30%{
-
-transform:scale(1.03);
-
-}
-
-60%{
-
-transform:scale(.98);
-
-}
-
-100%{
-
-transform:scale(1);
-
-box-shadow:0 0 35px rgba(67,160,71,.45);
-
-}
-
+        box-shadow: 0 0 35px rgba(67, 160, 71, 0.45);
+    }
 }
 
 /* ==========================================================
    BUTTON CLICK
 ========================================================== */
 
-.clicked{
-
-    animation:buttonPop .45s ease;
-
+.clicked {
+    animation: buttonPop 0.45s ease;
 }
 
-@keyframes buttonPop{
+@keyframes buttonPop {
+    0% {
+        transform: scale(1);
+    }
 
-0%{
+    50% {
+        transform: scale(1.08);
+    }
 
-transform:scale(1);
-
+    100% {
+        transform: scale(1);
+    }
 }
 
-50%{
+/* ==========================================================
+   HEART CLICK ANIMATION
+========================================================== */
 
-transform:scale(1.08);
-
+.wishlist-btn.heart-animation {
+    animation: heartPop 0.4s ease;
 }
 
-100%{
+@keyframes heartPop {
+    0% {
+        transform: scale(1);
+    }
 
-transform:scale(1);
+    40% {
+        transform: scale(1.3);
+    }
 
-}
+    70% {
+        transform: scale(0.9);
+    }
 
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* ==========================================================
    CONFETTI
 ========================================================== */
 
-.card-confetti{
+.card-confetti {
+    position: absolute;
 
-    position:absolute;
+    top: 50%;
+    left: 50%;
 
-    top:50%;
-    left:50%;
+    transform: translate(-50%, -50%);
 
-    transform:translate(-50%,-50%);
+    pointer-events: none;
 
-    pointer-events:none;
-
-    z-index:999;
-
+    z-index: 999;
 }
 
 /* ==========================================================
    RESPONSIVE
 ========================================================== */
 
-@media(max-width:992px){
+@media (max-width: 992px) {
+    .item {
+        padding: 18px;
+    }
 
-.item{
+    .item-price-new {
+        font-size: 20px;
+    }
 
-padding:18px;
+    .item-price-old {
+        font-size: 15px;
+    }
 
+    .view-product {
+        width: 140px;
+
+        height: 42px;
+
+        font-size: 14px;
+    }
+
+    .wishlist-btn {
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 20px;
+
+        top: 10px;
+
+        right: 10px;
+    }
 }
 
-.item-price-new{
+@media (max-width: 768px) {
+    .item {
+        padding: 16px;
+    }
 
-font-size:20px;
+    .item-title p {
+        font-size: 16px;
+    }
 
+    .item-price-new {
+        font-size: 18px;
+    }
+
+    .item-price-old {
+        font-size: 14px;
+    }
+
+    .item-cart {
+        font-size: 15px;
+
+        padding: 11px;
+    }
+
+    .view-product {
+        width: 130px;
+
+        height: 40px;
+
+        font-size: 13px;
+    }
+
+    .wishlist-btn {
+        width: 36px;
+
+        height: 36px;
+
+        font-size: 19px;
+    }
 }
 
-.item-price-old{
+@media (max-width: 480px) {
+    .item {
+        padding: 14px;
+    }
 
-font-size:15px;
+    .item-title p {
+        font-size: 15px;
+    }
 
-}
+    .item-price-new {
+        font-size: 17px;
+    }
 
-.view-product{
+    .item-price-old {
+        font-size: 13px;
+    }
 
-width:140px;
+    .item-cart {
+        font-size: 14px;
 
-height:42px;
+        padding: 10px;
+    }
 
-font-size:14px;
+    .view-product {
+        width: 120px;
 
-}
+        height: 38px;
 
-}
+        font-size: 12px;
+    }
 
-@media(max-width:768px){
+    .wishlist-btn {
+        width: 34px;
 
-.item{
+        height: 34px;
 
-padding:16px;
+        font-size: 18px;
 
-}
+        top: 8px;
 
-.item-title p{
-
-font-size:16px;
-
-}
-
-.item-price-new{
-
-font-size:18px;
-
-}
-
-.item-price-old{
-
-font-size:14px;
-
-}
-
-.item-cart{
-
-font-size:15px;
-
-padding:11px;
-
-}
-
-.view-product{
-
-width:130px;
-
-height:40px;
-
-font-size:13px;
-
-}
-
-}
-
-@media(max-width:480px){
-
-.item{
-
-padding:14px;
-
-}
-
-.item-title p{
-
-font-size:15px;
-
-}
-
-.item-price-new{
-
-font-size:17px;
-
-}
-
-.item-price-old{
-
-font-size:13px;
-
-}
-
-.item-cart{
-
-font-size:14px;
-
-padding:10px;
-
-}
-
-.view-product{
-
-width:120px;
-
-height:38px;
-
-font-size:12px;
-
-}
-
+        right: 8px;
+    }
 }

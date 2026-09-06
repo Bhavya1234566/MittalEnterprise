@@ -307,6 +307,80 @@ Related Products
     text-decoration:none;
 }
 
+
+/* ==========================================
+   PDP WISHLIST BUTTON
+========================================== */
+
+.pdp-right .action-buttons {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+}
+
+.pdp-right .cart-btn,
+.pdp-right .pdp-wishlist-btn,
+.pdp-right .buy-btn {
+    min-height: 54px;
+    box-sizing: border-box;
+}
+
+.pdp-right .cart-btn {
+    flex: 1;
+}
+
+.pdp-wishlist-btn {
+    flex: 1;
+
+    padding: 0 18px;
+
+    background: #ffffff;
+    color: #1f5d24;
+
+    border: 2px solid #1f5d24;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition: all 0.25s ease;
+}
+
+.pdp-wishlist-btn:hover {
+    background: #f4f8f4;
+    border-color: #1f5d24;
+}
+
+.pdp-wishlist-btn.active {
+    background: #ffffff;
+    color: #1f5d24;
+    border-color: #1f5d24;
+}
+
+
+/* ==========================================
+   PDP MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .pdp-right .action-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .pdp-right .cart-btn,
+    .pdp-right .pdp-wishlist-btn,
+    .pdp-right .buy-btn {
+        width: 100%;
+        flex: none;
+    }
+
+}
 /* ==========================
 Responsive
 ========================== */

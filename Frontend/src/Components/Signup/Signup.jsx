@@ -3,9 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import "./Signup.css";
 
-
 const Signup = () => {
-
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -16,26 +14,24 @@ const Signup = () => {
     confirmPassword: "",
   });
 
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] =
+    useState(false);
 
   const [showConfirmPassword, setShowConfirmPassword] =
     useState(false);
 
-  const [loading, setLoading] = useState(false);
-
+  const [loading, setLoading] =
+    useState(false);
 
   const handleChange = (e) => {
-
     setFormData({
       ...formData,
+
       [e.target.name]: e.target.value,
     });
-
   };
 
-
   const handleSignup = async (e) => {
-
     e.preventDefault();
 
     const {
@@ -46,37 +42,33 @@ const Signup = () => {
       confirmPassword,
     } = formData;
 
-
-    // Required fields
+    // ================================================
+    // VALIDATION
+    // ================================================
 
     if (
-      !name ||
-      !email ||
-      !phone ||
+      !name.trim() ||
+      !email.trim() ||
+      !phone.trim() ||
       !password ||
       !confirmPassword
     ) {
-
-      alert("Please fill all the fields.");
+      alert(
+        "Please fill all the fields."
+      );
 
       return;
     }
-
-
-    // Password match
 
     if (password !== confirmPassword) {
-
-      alert("Passwords do not match.");
+      alert(
+        "Passwords do not match."
+      );
 
       return;
     }
 
-
-    // Password length
-
     if (password.length < 6) {
-
       alert(
         "Password must be at least 6 characters."
       );
@@ -84,11 +76,12 @@ const Signup = () => {
       return;
     }
 
-
     try {
-
       setLoading(true);
 
+      // ==============================================
+      // API
+      // ==============================================
 
       const response = await fetch(
         "http://127.0.0.1:5000/api/auth/signup",
@@ -100,20 +93,17 @@ const Signup = () => {
           },
 
           body: JSON.stringify({
-            name,
-            email,
-            phone,
+            name: name.trim(),
+            email: email.trim(),
+            phone: phone.trim(),
             password,
           }),
         }
       );
 
-
       const data = await response.json();
 
-
       if (!response.ok) {
-
         alert(
           data.message ||
           "Unable to create account."
@@ -122,25 +112,29 @@ const Signup = () => {
         return;
       }
 
-
-      // Save logged-in user
+      // ==============================================
+      // SAVE USER
+      // ==============================================
 
       localStorage.setItem(
         "loggedInUser",
         JSON.stringify(data.user)
       );
 
+      // ==============================================
+      // UPDATE NAVBAR
+      // ==============================================
+
+      window.dispatchEvent(
+        new Event("authChanged")
+      );
 
       alert(
         "Account created successfully!"
       );
 
-
       navigate("/");
-
-
     } catch (error) {
-
       console.error(
         "Signup error:",
         error
@@ -149,24 +143,17 @@ const Signup = () => {
       alert(
         "Unable to connect to server. Please try again."
       );
-
     } finally {
-
       setLoading(false);
-
     }
-
   };
 
-
   return (
-
     <div className="signup-page">
 
       <div className="signup-container">
 
-
-        {/* Left Section */}
+        {/* LEFT */}
 
         <div className="signup-left">
 
@@ -179,7 +166,6 @@ const Signup = () => {
             to genuine tractor parts, accessories
             and exclusive offers.
           </p>
-
 
           <div className="signup-features">
 
@@ -207,8 +193,7 @@ const Signup = () => {
 
         </div>
 
-
-        {/* Right Section */}
+        {/* RIGHT */}
 
         <div className="signup-card">
 
@@ -220,11 +205,9 @@ const Signup = () => {
             Create your account to get started
           </p>
 
-
           <form onSubmit={handleSignup}>
 
-
-            {/* Name */}
+            {/* NAME */}
 
             <div className="signup-field">
 
@@ -242,8 +225,7 @@ const Signup = () => {
 
             </div>
 
-
-            {/* Email + Phone */}
+            {/* EMAIL + PHONE */}
 
             <div className="signup-row">
 
@@ -263,7 +245,6 @@ const Signup = () => {
 
               </div>
 
-
               <div className="signup-field">
 
                 <label>
@@ -282,8 +263,7 @@ const Signup = () => {
 
             </div>
 
-
-            {/* Password */}
+            {/* PASSWORD */}
 
             <div className="signup-field">
 
@@ -299,24 +279,18 @@ const Signup = () => {
                       ? "text"
                       : "password"
                   }
-
                   name="password"
-
                   placeholder="Create a password"
-
                   value={formData.password}
-
                   onChange={handleChange}
                 />
-
 
                 <button
                   type="button"
                   className="signup-show-password"
-
                   onClick={() =>
                     setShowPassword(
-                      !showPassword
+                      (prev) => !prev
                     )
                   }
                 >
@@ -329,8 +303,7 @@ const Signup = () => {
 
             </div>
 
-
-            {/* Confirm Password */}
+            {/* CONFIRM PASSWORD */}
 
             <div className="signup-field">
 
@@ -346,26 +319,20 @@ const Signup = () => {
                       ? "text"
                       : "password"
                   }
-
                   name="confirmPassword"
-
                   placeholder="Confirm your password"
-
                   value={
                     formData.confirmPassword
                   }
-
                   onChange={handleChange}
                 />
-
 
                 <button
                   type="button"
                   className="signup-show-password"
-
                   onClick={() =>
                     setShowConfirmPassword(
-                      !showConfirmPassword
+                      (prev) => !prev
                     )
                   }
                 >
@@ -378,8 +345,7 @@ const Signup = () => {
 
             </div>
 
-
-            {/* Terms */}
+            {/* TERMS */}
 
             <label className="terms-checkbox">
 
@@ -395,25 +361,21 @@ const Signup = () => {
 
             </label>
 
-
-            {/* Create Account */}
+            {/* SUBMIT */}
 
             <button
               type="submit"
               className="signup-submit"
               disabled={loading}
             >
-
               {loading
                 ? "Creating Account..."
                 : "Create Account"}
-
             </button>
 
           </form>
 
-
-          {/* Login */}
+          {/* LOGIN */}
 
           <div className="already-account">
 
@@ -430,9 +392,7 @@ const Signup = () => {
       </div>
 
     </div>
-
   );
 };
-
 
 export default Signup;

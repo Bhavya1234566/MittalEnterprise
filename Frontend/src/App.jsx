@@ -16,6 +16,7 @@ import Login from "./Components/Login/Login";
 import Signup from "./Components/Signup/Signup";
 import ForgotPassword from "./Components/ForgotPassword/ForgotPassword";  
 import ResetPassword from "./Components/ResetPassword/ResetPassword";
+import Wishlist from "./Pages/Wishlist/Wishlist";
 
 function App() {
   return (
@@ -49,6 +50,11 @@ function App() {
 <Route
   path="/reset-password"
   element={<ResetPassword />}
+/>
+
+<Route
+  path="/wishlist"
+  element={<Wishlist />}
 />
 
     </Routes>

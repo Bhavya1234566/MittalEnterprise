@@ -9,16 +9,129 @@ import { CartContext } from "../../Context/ShopContext";
 
 import "./Cart.css";
 
-const Cart = () => {
+// ======================================================
+// PRODUCT IMAGES
+// ======================================================
 
+import p1_img from "../../Components/assets/oil_seal_and_rubber_parts1.png";
+import p2_img from "../../Components/assets/oil seal and rubber parts2.png";
+import p3_img from "../../Components/assets/oil seal and rubber parts3.png";
+import p4_img from "../../Components/assets/oil seal and rubber parts4.png";
+import p5_img from "../../Components/assets/gear_part_1.png";
+import p6_img from "../../Components/assets/rubber_ring1.webp";
+import p7_img from "../../Components/assets/gear_part_2.png";
+import p8_img from "../../Components/assets/Hydraulic Pump.jpeg";
+
+// ======================================================
+// IMAGE MAPPING
+// ======================================================
+
+const productImages = {
+  "oil_seal_and_rubber_parts1.png": p1_img,
+  "oil seal and rubber parts2.png": p2_img,
+  "oil seal and rubber parts3.png": p3_img,
+  "oil seal and rubber parts4.png": p4_img,
+  "gear_part_1.png": p5_img,
+  "rubber_ring1.webp": p6_img,
+  "gear_part_2.png": p7_img,
+  "Hydraulic Pump.jpeg": p8_img,
+};
+
+// ======================================================
+// CART COMPONENT
+// ======================================================
+
+const Cart = () => {
   const navigate = useNavigate();
 
+  // ====================================================
+  // CART CONTEXT
+  // ====================================================
+
   const {
+    user,
     cartItems,
     removeFromCart,
     updateQuantity,
     totalAmount,
+    cartLoading,
   } = useContext(CartContext);
+
+  // ====================================================
+  // NOT LOGGED IN
+  // ====================================================
+
+  if (!user) {
+    return (
+      <>
+        <Navbar />
+
+        <Breadcrumb currentPage="Shopping Cart" />
+
+        <div className="cart-page">
+
+          <h1>Shopping Cart</h1>
+
+          <div className="empty-cart">
+
+            <h2>Please Login First</h2>
+
+            <p>
+              Please login to view your personal shopping cart.
+            </p>
+
+            <button
+              type="button"
+              className="continue-btn"
+              onClick={() => navigate("/login")}
+            >
+              Login
+            </button>
+
+          </div>
+
+        </div>
+
+        <Footer />
+      </>
+    );
+  }
+
+  // ====================================================
+  // LOADING CART
+  // ====================================================
+
+  if (cartLoading) {
+    return (
+      <>
+        <Navbar />
+
+        <Breadcrumb currentPage="Shopping Cart" />
+
+        <div className="cart-page">
+
+          <h1>Shopping Cart</h1>
+
+          <div className="empty-cart">
+
+            <h2>Loading Cart...</h2>
+
+            <p>
+              Please wait while we load your cart.
+            </p>
+
+          </div>
+
+        </div>
+
+        <Footer />
+      </>
+    );
+  }
+
+  // ====================================================
+  // MAIN CART
+  // ====================================================
 
   return (
     <>
@@ -30,13 +143,24 @@ const Cart = () => {
 
         <h1>Shopping Cart</h1>
 
+        {/* ==================================================
+            EMPTY CART
+        ================================================== */}
+
         {cartItems.length === 0 ? (
 
           <div className="empty-cart">
 
             <h2>Your Cart is Empty</h2>
 
-            <Link to="/products" className="continue-btn">
+            <p>
+              Add some products to your cart to continue shopping.
+            </p>
+
+            <Link
+              to="/products"
+              className="continue-btn"
+            >
               Continue Shopping
             </Link>
 
@@ -46,106 +170,201 @@ const Cart = () => {
 
           <div className="cart-container">
 
-            {/* Left */}
+            {/* ==================================================
+                LEFT SIDE
+            ================================================== */}
 
             <div className="cart-left">
 
-              {cartItems.map((item) => (
+              {cartItems.map((item) => {
 
-                <div
-                  className="cart-item"
-                  key={item.id}
-                >
+                const image =
+                  productImages[item.image] ||
+                  item.image;
 
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                  />
+                const price =
+                  Number(item.new_price || 0);
 
-                  <div className="cart-info">
+                const quantity =
+                  Number(item.quantity || 0);
 
-                    <h3>{item.name}</h3>
+                const subtotal =
+                  price * quantity;
 
-                    <p>{item.desc}</p>
-
-                    <h4>₹{item.new_price}</h4>
-
-                  </div>
-
-                  <div className="qty-box">
-
-                    <button
-                      onClick={() =>
-                        updateQuantity(
-                          item.id,
-                          item.quantity - 1
-                        )
-                      }
-                    >
-                      -
-                    </button>
-
-                    <span>{item.quantity}</span>
-
-                    <button
-                      onClick={() =>
-                        updateQuantity(
-                          item.id,
-                          item.quantity + 1
-                        )
-                      }
-                    >
-                      +
-                    </button>
-
-                  </div>
-
-                  <div className="subtotal">
-
-                    ₹
-                    {item.new_price * item.quantity}
-
-                  </div>
-
-                  <button
-                    className="remove-btn"
-                    onClick={() =>
-                      removeFromCart(item.id)
-                    }
+                return (
+                  <div
+                    className="cart-item"
+                    key={item.id}
                   >
-                    Remove
-                  </button>
 
-                </div>
+                    {/* ==================================================
+                        PRODUCT IMAGE
+                    ================================================== */}
 
-              ))}
+                    <Link
+                      to={`/product/${item.id}`}
+                    >
+                      <img
+                        src={image}
+                        alt={item.name}
+                      />
+                    </Link>
+
+                    {/* ==================================================
+                        PRODUCT INFORMATION
+                    ================================================== */}
+
+                    <div className="cart-info">
+
+                      <Link
+                        to={`/product/${item.id}`}
+                        style={{
+                          textDecoration: "none",
+                          color: "inherit",
+                        }}
+                      >
+                        <h3>
+                          {item.name}
+                        </h3>
+                      </Link>
+
+                      <p>
+                        {item.description ||
+                          item.desc ||
+                          "Product"}
+                      </p>
+
+                      <h4>
+                        ₹{price}
+                      </h4>
+
+                    </div>
+
+                    {/* ==================================================
+                        QUANTITY
+                    ================================================== */}
+
+                    <div className="qty-box">
+
+                      <button
+                        type="button"
+                        onClick={() =>
+                          updateQuantity(
+                            item.id,
+                            quantity - 1
+                          )
+                        }
+                        disabled={quantity <= 1}
+                      >
+                        -
+                      </button>
+
+                      <span>
+                        {quantity}
+                      </span>
+
+                      <button
+                        type="button"
+                        onClick={() =>
+                          updateQuantity(
+                            item.id,
+                            quantity + 1
+                          )
+                        }
+                      >
+                        +
+                      </button>
+
+                    </div>
+
+                    {/* ==================================================
+                        SUBTOTAL
+                    ================================================== */}
+
+                    <div className="subtotal">
+                      ₹{subtotal.toFixed(2)}
+                    </div>
+
+                    {/* ==================================================
+                        REMOVE BUTTON
+                    ================================================== */}
+
+                    <button
+                      type="button"
+                      className="remove-btn"
+                      onClick={() =>
+                        removeFromCart(item.id)
+                      }
+                    >
+                      Remove
+                    </button>
+
+                  </div>
+                );
+              })}
 
             </div>
 
-            {/* Right */}
+            {/* ==================================================
+                RIGHT SIDE - ORDER SUMMARY
+            ================================================== */}
 
             <div className="cart-right">
 
-              <h2>Order Summary</h2>
+              <h2>
+                Order Summary
+              </h2>
+
+              {/* SUBTOTAL */}
 
               <div className="summary-row">
-                <span>Subtotal</span>
-                <span>₹{totalAmount}</span>
+
+                <span>
+                  Subtotal
+                </span>
+
+                <span>
+                  ₹{Number(totalAmount).toFixed(2)}
+                </span>
+
               </div>
 
+              {/* SHIPPING */}
+
               <div className="summary-row">
-                <span>Shipping</span>
-                <span>Free</span>
+
+                <span>
+                  Shipping
+                </span>
+
+                <span>
+                  Free
+                </span>
+
               </div>
+
+              {/* TOTAL */}
 
               <div className="summary-row total">
-                <span>Total</span>
-                <span>₹{totalAmount}</span>
+
+                <span>
+                  Total
+                </span>
+
+                <span>
+                  ₹{Number(totalAmount).toFixed(2)}
+                </span>
+
               </div>
 
+              {/* CHECKOUT */}
+
               <button
+                type="button"
                 className="checkout-btn"
-                onClick={() => navigate("/checkout")}
+                onClick={() =>
+                  navigate("/checkout")
+                }
               >
                 Proceed To Checkout
               </button>
@@ -159,7 +378,6 @@ const Cart = () => {
       </div>
 
       <Footer />
-
     </>
   );
 };
