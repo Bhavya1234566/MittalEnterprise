@@ -1,0 +1,88 @@
+/* =============================================
+   global.css — Design tokens & resets
+   All components import / depend on these vars
+   ============================================= */
+
+:root {
+  /* Brand colours */
+  --green-primary:   #2d5016;
+  --green-accent:    #4caf50;
+  --green-dark:      #1b4d0e;
+  --green-hover:     #256628;
+  --green-light-bg:  #f1f8f4;
+  --green-pale:      #e8f5e9;
+  --green-pale-alt:  #f4fff2;
+
+  /* Neutral */
+  --text-primary:    #111111;
+  --text-secondary:  #555555;
+  --text-muted:      #8c8c8c;
+  --text-dark:       #333333;
+  --border-light:    #e0e0e0;
+  --white:           #ffffff;
+
+  /* Typography */
+  --font-body:       "Poppins", sans-serif;
+
+  /* Motion */
+  --transition-base: all 0.25s ease;
+  --transition-slow: all 0.35s ease;
+
+  /* Elevation */
+  --shadow-sm:  0 2px 8px  rgba(45, 80, 22, 0.10);
+  --shadow-md:  0 4px 16px rgba(76, 175, 80, 0.25);
+  --shadow-btn: 0 5px 15px rgba(46, 125, 50, 0.30);
+
+  /* Spacing scale */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  40px;
+  --space-2xl: 60px;
+  --space-3xl: 80px;
+
+  /* Border radius */
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  20px;
+  --radius-pill: 50px;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}

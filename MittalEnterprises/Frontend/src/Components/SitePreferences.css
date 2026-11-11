@@ -1,0 +1,126 @@
+.site-preferences{position:fixed;right:14px;bottom:14px;z-index:10020;display:flex;align-items:center;gap:7px;padding:7px;background:#fff;border:1px solid #d9e0d9;border-radius:12px;box-shadow:0 4px 18px #0002}
+.site-preferences button,.site-preferences select{border:1px solid #d5ddd5;background:#fff;color:#18351c;border-radius:8px;padding:7px 9px;font-size:12px;font-weight:600;cursor:pointer}
+.google-translate-hidden{display:none!important}.goog-te-banner-frame,.goog-te-gadget,.skiptranslate{display:none!important}body{top:0!important}
+html.mittal-dark{color-scheme:dark;--text-primary:#f3f4f6;--text-secondary:#d1d5db;--text-muted:#aab4c2;--white:#111827}
+html.mittal-dark body{background:#111827!important;color:#f3f4f6!important}
+html.mittal-dark #root{background:#111827;color:#f3f4f6}
+html.mittal-dark .hero{background:linear-gradient(115deg,#17251c 0%,#111827 75%)!important;color:#f9fafb!important}
+html.mittal-dark .hero-left h6{color:#a7e0ad!important}
+html.mittal-dark .hero-left p{color:#f9fafb!important}
+html.mittal-dark .hero-left img{filter:none}
+html.mittal-dark h1,html.mittal-dark h2,html.mittal-dark h3,html.mittal-dark h4,html.mittal-dark h5,html.mittal-dark h6,
+html.mittal-dark p,html.mittal-dark label,html.mittal-dark span,html.mittal-dark li,html.mittal-dark td,html.mittal-dark th{color:inherit}
+html.mittal-dark .navbar-wrapper,html.mittal-dark .navbar-wrapper .navbar,html.mittal-dark .search-suggestions,html.mittal-dark .search-suggestion-item,
+html.mittal-dark .login-card,html.mittal-dark .signup-card,html.mittal-dark .checkout-card,html.mittal-dark .checkout-right,
+html.mittal-dark .cart-item,html.mittal-dark .cart-container,html.mittal-dark .product-tabs,html.mittal-dark .tab-content,
+html.mittal-dark .spec-table,html.mittal-dark .wishlist-card,html.mittal-dark .product-card,html.mittal-dark .site-preferences,
+html.mittal-dark .login-page,html.mittal-dark .signup-page,html.mittal-dark .checkout-page,html.mittal-dark .cart-page,
+html.mittal-dark .popular,html.mittal-dark .categories,html.mittal-dark .brands,html.mittal-dark .offers,
+html.mittal-dark .why-choose-us,html.mittal-dark .collections,html.mittal-dark .customer-reviews,html.mittal-dark .faqs,
+html.mittal-dark footer,html.mittal-dark .footer{background-color:#1f2937!important;color:#e5e7eb!important;border-color:#374151!important}
+html.mittal-dark input,html.mittal-dark textarea,html.mittal-dark select{background:#111827!important;color:#f9fafb!important;border-color:#4b5563!important}
+html.mittal-dark input::placeholder,html.mittal-dark textarea::placeholder{color:#9ca3af!important}
+html.mittal-dark a{color:#a7e0ad}
+html.mittal-dark button{color:inherit}
+html.mittal-dark .site-preferences button,html.mittal-dark .site-preferences select{background:#111827!important;color:#fff!important;border-color:#4b5563!important}
+html.mittal-dark .search-suggestion-item:hover{background:#374151!important}
+html.mittal-dark .login-left,html.mittal-dark .login-left h1,html.mittal-dark .login-left p{color:#f9fafb!important}
+html.mittal-dark .admin-shell,html.mittal-dark .admin-main,html.mittal-dark .admin-content{background:#111827!important;color:#e5e7eb!important}
+html.mittal-dark .admin-topbar,html.mittal-dark .admin-panel,html.mittal-dark .admin-stat,html.mittal-dark .admin-login-card{background:#1f2937!important;color:#e5e7eb!important;border-color:#374151!important}
+html.mittal-dark .admin-page-heading h1,html.mittal-dark .admin-panel h2,html.mittal-dark .admin-stat strong,html.mittal-dark .admin-login-card h1{color:#f9fafb!important}
+html.mittal-dark .admin-muted,html.mittal-dark .admin-stat small,html.mittal-dark .admin-topbar small{color:#cbd5e1!important}
+html.mittal-dark .admin-table th{background:#111827!important;color:#cbd5e1!important}
+html.mittal-dark .admin-table td{color:#e5e7eb!important;border-color:#374151!important}
+html.mittal-dark .admin-form-grid input,html.mittal-dark .admin-form-grid textarea,html.mittal-dark .admin-form-grid select{background:#111827!important;color:#fff!important}
+
+/* Dark-mode contrast pass: replace low-contrast grey copy and icons with
+   readable neutral/brand colours across the storefront and admin screens. */
+html.mittal-dark {
+  --text-primary: #f8fafc;
+  --text-secondary: #e2e8f0;
+  --text-muted: #cbd5e1;
+  --text-dark: #f1f5f9;
+  --border-light: #475569;
+}
+html.mittal-dark body,
+html.mittal-dark #root,
+html.mittal-dark #root main {
+  color: #f1f5f9 !important;
+}
+html.mittal-dark h1,
+html.mittal-dark h2,
+html.mittal-dark h3,
+html.mittal-dark h4,
+html.mittal-dark h5,
+html.mittal-dark h6,
+html.mittal-dark p,
+html.mittal-dark li,
+html.mittal-dark label,
+html.mittal-dark small,
+html.mittal-dark td,
+html.mittal-dark th,
+html.mittal-dark .text-muted,
+html.mittal-dark .text-secondary,
+html.mittal-dark .muted,
+html.mittal-dark .description,
+html.mittal-dark .subtitle,
+html.mittal-dark .admin-muted,
+html.mittal-dark .admin-stat small,
+html.mittal-dark .admin-topbar small {
+  color: #e2e8f0 !important;
+}
+html.mittal-dark .text-muted,
+html.mittal-dark .text-secondary,
+html.mittal-dark .muted,
+html.mittal-dark .description,
+html.mittal-dark .subtitle,
+html.mittal-dark .admin-muted {
+  color: #cbd5e1 !important;
+}
+/* Icon fonts and SVG interface icons should not remain grey/black on dark cards. */
+html.mittal-dark i,
+html.mittal-dark .icon,
+html.mittal-dark [class*="icon-"],
+html.mittal-dark .navbar svg,
+html.mittal-dark .navbar-wrapper svg,
+html.mittal-dark .admin-shell svg,
+html.mittal-dark .admin-main svg,
+html.mittal-dark button svg,
+html.mittal-dark a svg {
+  color: #a7e0ad !important;
+  stroke: currentColor;
+}
+html.mittal-dark button,
+html.mittal-dark .btn,
+html.mittal-dark .admin-button {
+  color: #f8fafc;
+}
+html.mittal-dark input,
+html.mittal-dark textarea,
+html.mittal-dark select,
+html.mittal-dark option {
+  color: #f8fafc !important;
+  caret-color: #a7e0ad;
+}
+html.mittal-dark input::placeholder,
+html.mittal-dark textarea::placeholder {
+  color: #cbd5e1 !important;
+  opacity: 1;
+}
+html.mittal-dark .site-preferences button,
+html.mittal-dark .site-preferences select {
+  color: #f8fafc !important;
+}
+html.mittal-dark .site-preferences button:hover,
+html.mittal-dark .site-preferences select:hover {
+  border-color: #86efac !important;
+}
+html.mittal-dark .admin-table th,
+html.mittal-dark .admin-table td {
+  color: #e2e8f0 !important;
+}
+/* Preserve colourful product/brand illustrations and emoji artwork. */
+html.mittal-dark img,
+html.mittal-dark .hero-left img {
+  filter: none;
+}

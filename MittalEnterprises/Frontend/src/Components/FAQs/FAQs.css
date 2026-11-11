@@ -1,0 +1,25 @@
+.faq{
+padding:80px 8%;
+background:white;
+}
+
+.faq-item{
+border-bottom:1px solid #ddd;
+padding:20px 0;
+}
+
+.faq-question{
+display:flex;
+justify-content:space-between;
+cursor:pointer;
+}
+
+.faq-question h3{
+font-size:20px;
+}
+
+.faq-item p{
+margin-top:15px;
+color:#666;
+line-height:1.8;
+}

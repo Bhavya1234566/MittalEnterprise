@@ -1,0 +1,47 @@
+/* ==========================================
+   RELATED PRODUCTS SECTION
+========================================== */
+
+.related-products {
+    width: 90%;
+    margin: 60px auto;
+}
+
+.related-products h2 {
+    color: #1f5d24;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+/* Grid — cards themselves (.item) are styled by Items.css,
+   imported automatically by the Items component */
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+@media (max-width: 1100px) {
+
+    .related-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    .related-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

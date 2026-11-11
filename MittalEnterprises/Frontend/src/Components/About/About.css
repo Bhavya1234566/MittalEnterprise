@@ -1,0 +1,112 @@
+.about {
+  width: 100%;
+}
+
+.about-hero {
+  background: linear-gradient(
+    rgba(46, 125, 50, 0.9),
+    rgba(27, 94, 32, 0.9)
+  );
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.about-hero p {
+  font-size: 1.2rem;
+}
+
+.about-company {
+  max-width: 1200px;
+  margin: 70px auto;
+  padding: 0 20px;
+}
+
+.about-content h2 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.mission-vision {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #f5fff5;
+  border-left: 5px solid #2e7d32;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.why-choose {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.why-choose h2 {
+  color: #2e7d32;
+  margin-bottom: 40px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 25px;
+}
+
+.feature {
+  background: white;
+  border: 1px solid #e0e0e0;
+  padding: 25px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.feature h3 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+
+  .about-hero p {
+    font-size: 1rem;
+  }
+}
